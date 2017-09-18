@@ -1,0 +1,2 @@
+# palanicom
+odoo 10
