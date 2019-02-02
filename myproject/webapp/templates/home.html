@@ -1,0 +1,237 @@
+
+{% load static %}
+
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/portopolio.css' %}">
+    <script src="{% static 'js/portopolio.js' %}"></script>
+
+</head>
+
+  {% if user.is_authenticated %}
+
+<div class="topnav">
+  <a  href="{% url 'home' %}">Home</a>
+  <div class="dropdown">
+  <button class="dropbtn">Blogs
+      <i class="fa fa-caret-down"></i>
+    </button>
+
+    <div class="dropdown-content">
+  <a  href="{% url 'post_new' %}">Create Blog</a>
+  <a  href="{% url 'post_list' %}">Blog List</a>
+  <a  href="{% url 'post_draft_list' %}">Draft Blogs</a>
+
+
+
+
+</div>
+</div>
+<div class="dropdown">
+<button class="dropbtn">Media
+    <i class="fa fa-caret-down"></i>
+  </button>
+
+  <div class="dropdown-content">
+<a  href="{% url 'musicfile:contentofindex' %}">Media Index</a>
+</div>
+</div>
+  <div class="topnav-right">
+
+    <a href ="#about-me">About</a>
+    <a href ="#portfolio">Portfolio</a>
+    <a href ="#contact">Contact</a>
+    {% if user.is_authenticated %}
+
+    <div class="dropdown">
+    <button class="dropbtn">Profile
+        <i class="fa fa-caret-down"></i>
+      </button>
+    <div class="dropdown-content">
+
+        <a  href="{% url 'profile' %}">View profile</a>
+        <a  href="{% url 'profile_edit' %}">Edit profile</a>
+        <a  href="{% url 'change_password' %}">Change password</a>
+        <a  href="{% url 'password_reset' %}">Password reset</a>
+    </div>
+  </div>
+
+    <a  href="{% url 'logout' %}">logout</a>
+    {% else %}
+    <a  href="{% url 'login' %}">login<n/a>
+    {% endif %}
+  </div>
+</div>
+
+
+{% else %}
+  <p>You are not logged in.</p>
+<a href="{% url 'login' %}">login</a>
+
+{% endif %}
+<body>
+  {% if user.is_authenticated %}
+
+<div class ="container-fluid" id ="section1">
+
+  <div class ="row">
+    <div class ="banner" id="home">
+      <br><br><br><br><br><br><br><br>
+    <h2>Mercurial Design Studio</h2><br>
+      <h5>Pleasure in the job puts perfection in the work</h5><br>
+        <div class ="row">
+    <div class ="button-group">
+      <a href="https://www.facebook.com/palanigct1994" target ="blank"><button class ="btn  btn-primary ba">Facebook       <i class ="fa fa-facebook"></i></button></a>
+     <a href="https://github.com/palani4194/" target ="blank"> <button class ="btn  btn-primary ba">Github       <i class ="fa fa-github"></i></button></a>
+      <a href="https://www.linkedin.com/in/palani-p-9623a511a/" target ="blank"><button class ="btn  btn-primary ba">LinkedIn       <i class ="fa fa-linkedin" aria-hidden="true;"></i></button></a>
+     <a href ="https://bitbucket.org/palani4194/" target ="blank"> <button class ="btn  btn-primary ba">Bitbucket       <i class ="fa fa-free-code-camp fa-fw "></i></button></a>
+     <a href="{% static 'css/PALANI_BE_CV.docx.url'%}" target="_new">Download Resume</a>
+
+     <br><br><br>
+      <hr style="position:relative"></hr>
+    </div>
+    </div>
+    </div>
+</div>
+
+  <div class ="row">
+  <div class ="about-me " id="about-me">
+    <div class ="overlay">
+      <div class ="row">
+      <h1>palanisamy p</h1><br>
+      <p>I m a 25 year old Engineering student from GCT-Coimbatore,India. I studied Computer Science Engineering and I have a passion for Web development. I am  self taught and I use my free time to develop pages. My Passion is to use my skills and technologies to help solve real world challenges.<br><br>
+Languages : HTML5,
+            CSS3,
+            PHP,
+            JavaScript,
+            Jquery,
+            Python,
+            Java.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--projects -->
+<div class ="row">
+  <div class ="portfolio" id="portfolio">
+    <div class ="overlay2">
+
+        <div class="container">
+                <div class="col-lg-12 text-center">
+                    <h2>Portfolio</h2>
+                    <h3 id="below-section" class="section-subheading">Here are some of my works.</h3>
+                </div>
+          <!-- Portfolio img1 -->
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="https://codepen.io/shubham08/full/eBwXWv/" target="_blank" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                            </div>
+                        </div>
+                        <!-- <img src="https://s27.postimg.org/ja5jnag4j/image.jpg" class="img-responsive new" alt=""> -->
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Tribute Page on Mahatma Gandhi</h4>
+                        <p id="small-text" class="text-muted">HTML and Bootstrap</p>
+                    </div>
+                </div>
+              <!-- End of Portfolio img1 -->
+
+              <!-- Portfolio img2 -->
+                <div class="col-md-4 col-sm-6 portfolio-item portfolio2">
+                    <a href="" class="portfolio-link" target="_blank" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+
+                            </div>
+                        </div>
+                        <img class  src="https://s27.postimg.org/b2vthw9bn/soon.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Coming Soon</h4>
+                        <p id="small-text" class="text-muted"></p>
+                    </div>
+                </div>
+              <!-- End of Portfolio img2 -->
+
+              <!-- Portfolio img3 -->
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="" target="_blank" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+
+                            </div>
+                        </div>
+                        <img src="https://s27.postimg.org/b2vthw9bn/soon.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Coming Soon</h4>
+                        <p id="small-text" class="text-muted"></p>
+                    </div>
+                </div>
+              <!-- End of Portfolio img3 -->
+                </div>
+              <!-- End of Portfolio img6 -->
+            </div>
+        </div>
+    </section>
+    </div>
+  <div class ="row">
+  <div class ="contact" id="contact">
+       <div class="contact-header">
+         <br><br>
+            <h1>I'd like to hear from you.
+            </h1>
+            <p>
+              Name: PALANISAMY P
+              Phone: 9894822885
+              Email: palanigct1994@gmail.com
+              Skype: palani4194
+            </p>
+          </div>
+    <div class ="row">
+     <div class="col-md-6 contact-text">
+              <h3>Want to get in touch with me? Feel free to reach out to me at any time.
+              </h3>
+            </div>
+
+    </div>
+  </div>
+</div>
+    </div>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="social-wrapper">
+        <ul>
+
+          <li>
+            <a href="https://www.linkedin.com/in/palani-p-9623a511a/" target="_blank">
+              <img src="https://www.columbia.edu/~ml3720/linkedin.jpg" alt="Linkedin Logo" class="linkedin-icon"></a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/palanigct1994" target="_blank">
+              <img src="http://www.iconarchive.com/download/i54037/danleech/simple/facebook.ico" alt="Facebook Logo" class="facebook-icon"></a>
+          </li>
+          <li>
+            <a href="https://plus.google.com/" target="_blank">
+              <img src="http://icons.iconarchive.com/icons/marcus-roberto/google-play/256/Google-plus-icon.png" alt="Googleplus Logo" class="googleplus-icon"></a>
+          </li>
+
+
+        </ul>
+      </div>
+
+      <nav class="footer-nav" role="navigation">
+        <p>Copyright &copy; Palani Web Design 2018. All Rights Reserved</p>
+      </nav>
+    </footer>
+    <!-- #colophon -->
+
+  {% else %}
+  <a  href="{% url 'register' %}">Register<n/a>
+  {% endif %}
+</body>
+
+{% block body %}
+{% endblock %}

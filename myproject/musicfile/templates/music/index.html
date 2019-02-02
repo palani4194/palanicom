@@ -1,0 +1,54 @@
+
+{% extends 'music/base.html' %}
+
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'musicfile/style.css' %}">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<div class="col-sm-12">
+    <h3>{{ user.username }}'s Albums</h3>
+</div>
+
+{% if all_albums %}
+
+  {%for album in all_albums%}
+  <div class="col-sm-4 col-lg-2">
+    <div class="thumbnail">
+      <a href="{% url 'musicfile:DetailOfAlbums' album.id %}">
+        <img src="{{ album.logo.url }}" class="img-responsive">
+      </a>
+      <div class="caption">
+                           <h2>{{ album.album_title }}</h2>
+                           <h4>{{ album.artist }}</h4>
+
+
+
+<a href="{% url 'musicfile:DetailOfAlbums' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+<!-- Delete Album -->
+            <form action="{% url 'musicfile:AlbumDelete' album.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="album_id" value="{{ album.id }}" />
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </form>
+
+                          <!-- Favorite Album -->
+              <!-- <a href="{% url 'musicfile:favourite' album.id %}" class="btn btn-default btn-sm btn-favorite" role="button">
+                  <span class="glyphicon glyphicon-star {% if album.is_favorite %}active{% endif %}"></span>
+              </a> -->
+
+            </div>
+        </div>
+    </div>
+
+  {%endfor%}
+
+{% else %}
+
+<h1> you don't have any albums please create  </h1>
+
+{%endif%}
+{% endblock %}

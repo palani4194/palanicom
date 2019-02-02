@@ -1,0 +1,30 @@
+{% extends 'music/base.html' %}
+<title>{% block title %}Album Details{% endblock %}</title>
+{% load staticfiles %}
+
+{% block body %}
+
+<img src="{{album.logo.url}}" alt="album_art" style="width:200px">
+<h2>{{ album.album_title }}</h2>
+<h3>{{ album.artist }}</h3>
+
+{% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+{% endif %}
+
+<form action="{% url 'musicfile:favourite' album.id  %}" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    {% for song in album.songs_set.all %}
+        <label for="song {{ forloop.counter }}"><input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+        {{song.song_title}}
+        {% if song.is_favourite %}
+        <img src="https://cdn4.iconfinder.com/data/icons/Sizicons/16x16/star_blue.png" alt="fav_star">
+            {% endif %}
+        </label> </br>
+
+    {% endfor %}
+<br>
+        <input type="submit" value="Favourite"></input>
+</form>
+
+{% endblock %}
