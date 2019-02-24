@@ -8,6 +8,9 @@ class employeesserializers(serializers.ModelSerializer):
         model = employees
         fields ='__all__'
 
+        # def create(self, validated_data):
+        #     return Article.objects.create(**validated_data)
+
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

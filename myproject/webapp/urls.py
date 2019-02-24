@@ -7,6 +7,8 @@ from django.views.generic.base import TemplateView # new
 urlpatterns = [
     path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
     # url(r'^blogs/', include('blog.urls', namespace='blog')),
+    # url(r'^employees/', views.employeesList.as_view()),
+
 
 
 ]

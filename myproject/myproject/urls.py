@@ -17,7 +17,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
-    # path('about/', views.AboutPageView.as_view(), name='about'),
 
     url(r'^admin/', admin.site.urls, name='about'),
 
@@ -29,6 +28,8 @@ urlpatterns = [
 
     url('', include('blog.urls')),
     url('', include('errorapp.urls')),
+    url('api/', include('posts.urls')),
+    url('', include('data.urls')),
 
 ]
 

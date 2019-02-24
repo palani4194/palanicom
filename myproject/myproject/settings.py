@@ -11,6 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q0%t)nkhz0q!+5zk7_!7+w_e6vvav)z&)if!7ii3w4qy!zhqdn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 # DEBUG = False
 
@@ -21,7 +22,7 @@ APPEND_SLASH=False
 
 
 
-# Application definition
+# Application definitions
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -31,15 +32,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'livereload',
+    'corsheaders',
     'webapp',
     'musicfile',
     'blog',
     'errorapp',
     'accounts',
+    'posts',
+    'data',
+    'import_export',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,10 +54,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
-  
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+
+
 ]
 
+
+
 ROOT_URLCONF = 'myproject.urls'
+CACHES = {
+   'default': {
+      'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+      'LOCATION': '127.0.0.1:11211',
+   }
+}
 
 TEMPLATES = [
     {
@@ -84,6 +104,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+# DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 # Password validation
@@ -121,17 +145,33 @@ USE_TZ = True
 
 
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'myproject/media/')
+
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'myproject/media/')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
+STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
 
+MEDIA_URL = "/media/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
 
 
 # to send mail
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    'http://survaider-chart.herokuapp.com/',
+
+)

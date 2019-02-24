@@ -1,7 +1,6 @@
 
 {% load static %}
 
-
 <head>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <link rel="stylesheet" href="{% static 'css/portopolio.css' %}">
@@ -9,87 +8,119 @@
 
 </head>
 
-  {% if user.is_authenticated %}
+<body>
+  <div class="topnav">
+    <a  href="{% url 'home' %}">Home</a>
+    {% if user.is_authenticated %}
 
-<div class="topnav">
-  <a  href="{% url 'home' %}">Home</a>
+    <div class="dropdown">
+    <button class="dropbtn">Blogs
+        <i class="fa fa-caret-down"></i>
+      </button>
+
+      <div class="dropdown-content">
+    <a  href="{% url 'post_new' %}">Create Blog</a>
+    <a  href="{% url 'post_list' %}">Blog List</a>
+    <a  href="{% url 'post_draft_list' %}">Draft Blogs</a>
+
+
+
+
+  </div>
+  </div>
   <div class="dropdown">
-  <button class="dropbtn">Blogs
+  <button class="dropbtn">Media
       <i class="fa fa-caret-down"></i>
     </button>
 
     <div class="dropdown-content">
-  <a  href="{% url 'post_new' %}">Create Blog</a>
-  <a  href="{% url 'post_list' %}">Blog List</a>
-  <a  href="{% url 'post_draft_list' %}">Draft Blogs</a>
+  <a  href="{% url 'musicfile:contentofindex' %}">Media Index</a>
+  </div>
+  </div>
 
+  {% endif %}
 
+    <div class="topnav-right">
+      <div class="dropdown">
+      <button class="dropbtn">About
+          <i class="fa fa-caret-down"></i>
+        </button>
+      <div class="dropdown-content">
+      <a href ="#about-me">About</a>
+      <a href ="#portfolio">Portfolio</a>
+      <a href ="#contact">Contact</a>
+        </div>
+      </div>
 
+      {% if user.is_authenticated %}
 
-</div>
-</div>
-<div class="dropdown">
-<button class="dropbtn">Media
-    <i class="fa fa-caret-down"></i>
-  </button>
+      <div class="dropdown">
+      <button class="dropbtn">Profile
+          <i class="fa fa-caret-down"></i>
+        </button>
+      <div class="dropdown-content">
 
-  <div class="dropdown-content">
-<a  href="{% url 'musicfile:contentofindex' %}">Media Index</a>
-</div>
-</div>
-  <div class="topnav-right">
+          <a  href="{% url 'profile' %}">View profile</a>
+          <a  href="{% url 'profile_edit' %}">Edit profile</a>
+          <a  href="{% url 'change_password' %}">Change password</a>
+          <a  href="{% url 'password_reset' %}">Password reset</a>
+      </div>
+    </div>
 
-    <a href ="#about-me">About</a>
-    <a href ="#portfolio">Portfolio</a>
-    <a href ="#contact">Contact</a>
-    {% if user.is_authenticated %}
+      <a  href="{% url 'logout' %}">logout</a>
+      {% else %}
+      <a  href="{% url 'register' %}">Register<n/a>
+      <a  href="{% url 'login' %}">Login<n/a>
 
-    <div class="dropdown">
-    <button class="dropbtn">Profile
-        <i class="fa fa-caret-down"></i>
-      </button>
-    <div class="dropdown-content">
-
-        <a  href="{% url 'profile' %}">View profile</a>
-        <a  href="{% url 'profile_edit' %}">Edit profile</a>
-        <a  href="{% url 'change_password' %}">Change password</a>
-        <a  href="{% url 'password_reset' %}">Password reset</a>
+      {% endif %}
     </div>
   </div>
 
-    <a  href="{% url 'logout' %}">logout</a>
-    {% else %}
-    <a  href="{% url 'login' %}">login<n/a>
-    {% endif %}
-  </div>
-</div>
+</body>
 
 
-{% else %}
-  <p>You are not logged in.</p>
-<a href="{% url 'login' %}">login</a>
-
-{% endif %}
-<body>
-  {% if user.is_authenticated %}
 
 <div class ="container-fluid" id ="section1">
 
   <div class ="row">
     <div class ="banner" id="home">
       <br><br><br><br><br><br><br><br>
-    <h2>Mercurial Design Studio</h2><br>
+      <h2>HELLO I'M</h2><br>
+
+
+    <h2>PALANISAMY P</h2><br>
+    <h3>Python/Django Developer</h3><br>
+
       <h5>Pleasure in the job puts perfection in the work</h5><br>
         <div class ="row">
     <div class ="button-group">
-      <a href="https://www.facebook.com/palanigct1994" target ="blank"><button class ="btn  btn-primary ba">Facebook       <i class ="fa fa-facebook"></i></button></a>
-     <a href="https://github.com/palani4194/" target ="blank"> <button class ="btn  btn-primary ba">Github       <i class ="fa fa-github"></i></button></a>
-      <a href="https://www.linkedin.com/in/palani-p-9623a511a/" target ="blank"><button class ="btn  btn-primary ba">LinkedIn       <i class ="fa fa-linkedin" aria-hidden="true;"></i></button></a>
-     <a href ="https://bitbucket.org/palani4194/" target ="blank"> <button class ="btn  btn-primary ba">Bitbucket       <i class ="fa fa-free-code-camp fa-fw "></i></button></a>
-     <a href="{% static 'css/PALANI_BE_CV.docx.url'%}" target="_new">Download Resume</a>
+      <a href="https://www.facebook.com/palanigct1994" target ="blank"><button class ="btn  btn-primary ba">Facebook<i class ="fa fa-facebook"></i></button></a>
+     <a href="https://github.com/palani4194/" target ="blank"> <button class ="btn  btn-primary ba">Github<i class ="fa fa-github"></i></button></a>
+      <a href="https://www.linkedin.com/in/palani-p-9623a511a/" target ="blank"><button class ="btn  btn-primary ba">LinkedIn<i class ="fa fa-linkedin" aria-hidden="true;"></i></button></a>
+     <a href ="https://bitbucket.org/palani4194/" target ="blank"> <button class ="btn  btn-primary ba">Bitbucket<i class ="fa fa-free-code-camp fa-fw "></i></button></a>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+
+     <a href="{% static 'css/PALANI_BE_CV.docx'%}" style="color: white; font-size: 30px;" target="_new">Download Resume</a>
+     <br/>
+     <br/>
+     <br/>
+     <a href="mailto:palanigct1994@gmail.com" style="color: white; font-size: 30px;">palanigct1994@gmail.com</a>
+     <br/>
+     <br/>
+     <br/>
+     <a href="9894822885" style="color: white; font-size: 30px;">9894822885</a>
+     <br/>
+     <br/>
+
+
+
 
      <br><br><br>
-      <hr style="position:relative"></hr>
+
     </div>
     </div>
     </div>
@@ -99,15 +130,23 @@
   <div class ="about-me " id="about-me">
     <div class ="overlay">
       <div class ="row">
-      <h1>palanisamy p</h1><br>
-      <p>I m a 25 year old Engineering student from GCT-Coimbatore,India. I studied Computer Science Engineering and I have a passion for Web development. I am  self taught and I use my free time to develop pages. My Passion is to use my skills and technologies to help solve real world challenges.<br><br>
-Languages : HTML5,
-            CSS3,
-            PHP,
-            JavaScript,
-            Jquery,
-            Python,
-            Java.
+
+      <p>I m a 25 year old Engineering student from GCT-Coimbatore,India. I studied Computer Science Engineering and I have a passion for Web development. I am  self taught and I use my free time to develop pages. My Passion is to use my skills and technologies to help solve real world challenges.
+<br/>
+<br/>
+
+ Languages     : Python 3.5, XML, Postgresql 9.3, HTML 5, CSS 3, Core java, JavaScript. <br/><br/>
+ Frameworks  : Odoo 11, Django 2.0, DRF(Django Rest Framework).<br/><br/>
+ Course           : Completed Core Java  Course in NIIT Chennai.<br/><br/>
+ Other Skills   : IDE - Pycharm, Eclipse & Atom, Version Control - GitHub, Web server - NGINX , AWS.<br/><br/>
+ Environment : ERP and CRM App Development, Enhancement - Ubuntu 16.04 / Linux Environment.<br/><br/>
+
+
+
+
+            <br/>
+
+            </p>
       </div>
     </div>
   </div>
@@ -120,81 +159,67 @@ Languages : HTML5,
 
         <div class="container">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <h3 id="below-section" class="section-subheading">Here are some of my works.</h3>
-                </div>
-          <!-- Portfolio img1 -->
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="https://codepen.io/shubham08/full/eBwXWv/" target="_blank" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                            </div>
-                        </div>
-                        <!-- <img src="https://s27.postimg.org/ja5jnag4j/image.jpg" class="img-responsive new" alt=""> -->
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Tribute Page on Mahatma Gandhi</h4>
-                        <p id="small-text" class="text-muted">HTML and Bootstrap</p>
-                    </div>
-                </div>
-              <!-- End of Portfolio img1 -->
+                  <center>  <h2>Portfolio</h2></center>
+                  <br/>
+                  <br/>
+                  <br/>
 
-              <!-- Portfolio img2 -->
-                <div class="col-md-4 col-sm-6 portfolio-item portfolio2">
-                    <a href="" class="portfolio-link" target="_blank" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-
-                            </div>
-                        </div>
-                        <img class  src="https://s27.postimg.org/b2vthw9bn/soon.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Coming Soon</h4>
-                        <p id="small-text" class="text-muted"></p>
-                    </div>
                 </div>
-              <!-- End of Portfolio img2 -->
+  <a href="https://www.cbazaar.com" target="_blank"> <img  src="{% static 'images/cbazaar.jpeg' %}" alt="cbazaar"  width="200" height="200"></a>
+  <a href="https://www.petrogistix1.com" target="_blank"> <img  src="{% static 'images/petrogistix.png' %}" alt="petrogistix" ></a>
+  <a href="http://goldengrains.biz" target="_blank"> <img  src="{% static 'images/Golden-Grain-Logo-1.png' %}" alt="Golden-Grain" width="330" height="230"></a>
+  <a href="http://www.medmanpharmacy.com/" target="_blank"> <img  src="{% static 'images/medicine_man.png' %}" alt="Girl in a jacket" width="200" height="200"></a>
+  <a href="http://balbina.ae/" target="_blank"> <img  src="{% static 'images/balbina.jpg' %}" alt="balbina" width="200" height="200"></a>
+  <a href="https://www.180smoke.com/" target="_blank"> <img  src="{% static 'images/180_smoke.jpeg' %}" alt="180_smoke" width="200" height="200"></a>
+  <a href="https://www.ge.com/" target="_blank"> <img  src="{% static 'images/ge.png' %}" alt="ge" width="200" height="200"></a>
 
-              <!-- Portfolio img3 -->
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="" target="_blank" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
 
-                            </div>
-                        </div>
-                        <img src="https://s27.postimg.org/b2vthw9bn/soon.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Coming Soon</h4>
-                        <p id="small-text" class="text-muted"></p>
-                    </div>
+
+
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+
+<center>
+  <h3 id="below-section" class="section-subheading">Please find my some of my works above.</h3>
+  <br> </br>
+
+  <h3 id="below-section" class="section-subheading">These projects I was working in a ERP & CRM Application and E-Commerce websites too.</h3>
+  <br> </br>
+
+  <h3 id="below-section" class="section-subheading">I am a Python/Django Developer for Web Applications like ERP & CRM.</h3>
+
+  </center>
+
                 </div>
-              <!-- End of Portfolio img3 -->
-                </div>
-              <!-- End of Portfolio img6 -->
+
             </div>
         </div>
-    </section>
+
     </div>
+
+
   <div class ="row">
   <div class ="contact" id="contact">
        <div class="contact-header">
-         <br><br>
+         <br></br>
             <h1>I'd like to hear from you.
+              <br></br>
+              <br></br>
+
             </h1>
-            <p>
-              Name: PALANISAMY P
-              Phone: 9894822885
-              Email: palanigct1994@gmail.com
-              Skype: palani4194
-            </p>
+            <h2> Name: PALANISAMY P</h2>
+            <h2> Phone: 9894822885 </h2>
+            <h2>  Email: palanigct1994@gmail.com </h2>
+            <h2>  Skype: palani4194 </h2>
+
           </div>
     <div class ="row">
      <div class="col-md-6 contact-text">
-              <h3>Want to get in touch with me? Feel free to reach out to me at any time.
-              </h3>
+              <!-- <h3>Want to get in touch with me? Feel free to reach out to me at any time.
+              </h3> -->
             </div>
 
     </div>
@@ -207,7 +232,7 @@ Languages : HTML5,
 
           <li>
             <a href="https://www.linkedin.com/in/palani-p-9623a511a/" target="_blank">
-              <img src="https://www.columbia.edu/~ml3720/linkedin.jpg" alt="Linkedin Logo" class="linkedin-icon"></a>
+              <img src="http://icons.iconarchive.com/icons/limav/flat-gradient-social/48/Linkedin-icon.png" alt="Linkedin Logo" class="linkedin-icon"></a>
           </li>
           <li>
             <a href="https://www.facebook.com/palanigct1994" target="_blank">
@@ -226,12 +251,3 @@ Languages : HTML5,
         <p>Copyright &copy; Palani Web Design 2018. All Rights Reserved</p>
       </nav>
     </footer>
-    <!-- #colophon -->
-
-  {% else %}
-  <a  href="{% url 'register' %}">Register<n/a>
-  {% endif %}
-</body>
-
-{% block body %}
-{% endblock %}

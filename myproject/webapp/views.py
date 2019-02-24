@@ -30,14 +30,36 @@ class AboutPageView(TemplateView):
     template_name = 'about.html'
 
 class employeesList(APIView):
+
     def get(self,request):
         employees1 = employees.objects.all()
         serializer = employeesserializers(employees1, many=True)
         return Response(serializer.data)
-    def post(self):
-        pass
 
-
+    #
+    # def post(self, request):
+    #     employees1 = employees.objects.all()
+    #     serializer = employeesserializers(employees1, many=True)
+    #     if serializer.is_valid(raise_exception=True):
+    #         employees_saved = serializer.save()
+    #     return Response({"success": "employees '{}' updated successfully".format(employees_saved.temp_id)})
+    #
+    #
+    # def put(self, request, pk):
+    #     employees_saved = get_object_or_404(employees.objects.all(), pk=pk)
+    #     data = request.data.get('employees')
+    #     serializer = employeesserializers(instance=employees_saved, data=data, partial=True)
+    #     if serializer.is_valid(raise_exception=True):
+    #         employees_saved = serializer.save()
+    #     return Response({"success": "employees '{}' updated successfully".format(employees_saved.temp_id)})
+    #
+    #
+    # def delete(self, request, pk):
+    #
+    #     article = get_object_or_404(employees.objects.all(), pk=pk)
+    #     article.delete()
+    #     return Response({"message": "employees with id `{}` has been deleted.".format(pk)},status=204)
+    
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets

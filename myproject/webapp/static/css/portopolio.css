@@ -1,65 +1,33 @@
-html {
-  height: 100%;
-  width: 100%;
-}
-::selection {
-    color: white;
-    background: black;
-}
-body {
-  background: rgba(15, 120, 65, 0);
-  padding-top: 50px;
-}
-
-.header {
-  background: #7a1ea1;
-  padding-bottom: -10px;
-}
-
-.header #name {
-  margin-left: 30px;
-  background: #7a1ea1
-}
-
-.header #name:hover {
-  background: #691A99
-}
-
-button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 20px;
-  padding: 10px 10px;
-}
-
-.nav-right {
-  float: right;
-  margin-right: 40px
-}
-
-#b1:hover {
-  font-weight: boldest;
-  color: black;
-  background: rgba(104, 239, 173, 1);
-}
-
+/*
 #b2:hover {
   font-weight: boldest;
   color: black;
-  background: rgba(104, 239, 173, 1);
+  background: white;
 }
 
 #b3:hover {
   font-weight: boldest;
   color: black;
-  background: rgba(104, 239, 173, 1);
+  background: white;
+} */
+
+.a{
+
+  color : black;
+}
+.dropdown.dropbtn:hover{
+  overflow: hidden;
+  background-color: white;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #417690;
 }
 
 #b4:hover {
   font-weight: boldest;
   color: black;
-  background: rgba(104, 239, 173, 1);
+  background: white;
 }
 
 i:before {
@@ -67,9 +35,33 @@ i:before {
 }
 
 .navbar-default {
-  background-color: #7a1ea1;
+  background-color: #417690;
   border-color: transparent;
 }
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown-content{
+  background-color: #ddd;
+  color: black;
+
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover{
+  /* color: blue; */
+}
+
 
 .banner {
   padding-top: 50px;
@@ -81,19 +73,19 @@ i:before {
 }
 
 .banner h2 {
-  -webkit-text-stroke-color: #000020;
+  /* -webkit-text-stroke-color: #000020; */
   -webkit-text-stroke-width: 4px;
   -moz-text-stroke-color: #000020;
   -moz-text-stroke-width: 4px;
   letter-spacing: 4px;
   font-size: 70px;
-  color: red;
+  color: black;
   margin: 0;
 
 }
 
 h5 {
-  color: #FFC107;
+  color: black;
   font-family: 'Lobster';
   letter-spacing: 2px;
   font-size: 2.5em;
@@ -102,7 +94,7 @@ h5 {
 
 .button-group button {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 01);
-  background: rgba(104, 239, 173, 1);
+  /* background: rgba(104, 239, 173, 1); */
   color: #000000
 }
 
@@ -127,7 +119,7 @@ h5 {
 .about-me {
   padding-top: 50px;
   height: 855px;
-  background: url('https://s24.postimg.org/uxn05qs6t/6968639_sunset_beach_scenery.jpg') no-repeat center center fixed;
+  background: url('http://www.jeraldmason.net/Images/Website-Design-Background-1.jpg') no-repeat center center fixed;
   background-size: cover;
   padding-bottom: 50px;
 }
@@ -135,14 +127,18 @@ h5 {
 .about-me h1 {
   color: rgba(0, 0, 0, 1);
   width: 700px;
-  padding-left: 73px;
+  padding-left: 20px;
 }
 
 .about-me p {
   color: rgba(255, 255, 255, 20);
   font-size: 28px;
-  width: 700px;
-  padding-left: 80px;
+  /* width: 700px; */
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: Monospace;
+  
+
 }
 
 .overlay {
@@ -194,13 +190,13 @@ h5 {
 }
 
 .portfolio h2{
-    -webkit-text-stroke-color: #FFC400;
-  -webkit-text-stroke-width: 2px;
-  -moz-text-stroke-color: #FFC400;
+    /* -webkit-text-stroke-color: #FFC400;
+  -webkit-text-stroke-width: 2px; */
+  -moz-text-stroke-color: white;
   -moz-text-stroke-width: 4px;
   letter-spacing: 4px;
   font-size: 64px;
-  color: black;
+  color: white;
   margin: 0;
 }
 .portfolio-caption h4 {
@@ -208,12 +204,12 @@ h5 {
   color: #00BCD4;
 }
 
-footer {
+/* footer {
   background: rgba(104, 239, 173, 1);
   color:#000000;
   font-weight:bold;
   font-size:14px;
-}
+} */
 
 .new {
   height: 180px;
@@ -230,7 +226,7 @@ footer {
 
 .contact-header {
   text-align: center;
-  color: #778899
+  color : white;
 }
 .contact-text h3 {
   text-align:center;
@@ -265,10 +261,10 @@ footer {
 
 
 .site-footer {
-  background-color: #838383;
+  background-color: #417690;
 	text-align: center;
-	margin: 10px 0;
-	padding: 10px 0;
+	/* margin: 10px 0; */
+	padding: 20px 0;
 }
 
 #social-wrapper {
